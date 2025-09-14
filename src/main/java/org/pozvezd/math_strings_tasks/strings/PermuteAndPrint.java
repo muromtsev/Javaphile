@@ -1,11 +1,32 @@
 package org.pozvezd.math_strings_tasks.strings;
 
+
+/**
+ * Генерирование всех перестановок
+ *
+ * @author muromtsev
+ * @since 2025
+ */
+
 public class PermuteAndPrint {
+
+    /**
+     * Перегруженный метод вызывает другой перегруженный метод
+     * @param str
+     * @return str
+     */
 
     public static String permuteAndPrint(String str) {
         permuteAndPrint("", str);
         return str;
     }
+
+    /**
+     * Перегруженный метод с префиксом
+     * @param prefix
+     * @param str
+     * @return void
+     */
 
     private static void permuteAndPrint(String prefix, String str) {
 

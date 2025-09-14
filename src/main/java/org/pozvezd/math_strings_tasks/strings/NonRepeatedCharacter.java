@@ -6,9 +6,24 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * Отыскание первого неповторяющегося символа
+ *
+ * @author muromtsev
+ * @since 2025
+ *
+ */
+
 public class NonRepeatedCharacter {
 
     private static final int EXTENDED_ASCII_CODES = 256;
+
+    /**
+     *  Отыскание первого неповторяющегося символа с одним обходом
+     * @param str строка
+     * @return Char
+     *
+     **/
 
     public char firstNonRepeatedCharacter(String str) {
         int[] flags = new int[EXTENDED_ASCII_CODES];
@@ -35,6 +50,13 @@ public class NonRepeatedCharacter {
 
     }
 
+    /**
+     *  Отыскание первого неповторяющегося символа с помощью LinkedHashMap
+     * @param str строка
+     * @return Char
+     *
+     **/
+
     public char firstNonRepeatedCharacterForLinkedHashMap(String str) {
         Map<Character, Integer> chars = new LinkedHashMap<>();
 
@@ -51,6 +73,13 @@ public class NonRepeatedCharacter {
 
         return Character.MIN_VALUE;
     }
+
+    /**
+     *  Отыскание первого неповторяющегося символа StreamAPI
+     * @param str строка
+     * @return String
+     *
+     **/
 
     public String firstNonRepeatedCharacterJava8(String str) {
         LinkedHashMap<Integer, Long> chars = str.codePoints()

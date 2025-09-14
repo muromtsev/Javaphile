@@ -1,16 +1,30 @@
 package org.pozvezd.math_strings_tasks.strings;
 
-import org.pozvezd.Utils.Pair;
-
+import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+/**
+ * Подсчет гласных и согласных
+ *
+ * @author muromtsev
+ * @since 2025
+ *
+ **/
 
 public class VowelConsonantCounter {
 
     private static final Set<Character> allVowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
 
-    public static Pair<Integer, Integer> countVowelsAndConsonants(String str) {
+    /**
+     *  Подсчет гласных и согласных
+     * @param str строка
+     * @return Pair
+     *
+     **/
+
+    public static AbstractMap.SimpleEntry<Integer, Integer> countVowelsAndConsonants(String str) {
 
         str = str.toLowerCase();
         int vowels = 0;
@@ -24,10 +38,17 @@ public class VowelConsonantCounter {
                 consonants++;
             }
         }
-        return Pair.of(vowels, consonants);
+        return new AbstractMap.SimpleEntry<>(vowels, consonants);
     }
 
-    public static Pair<Long, Long> countVowelsAndConsonantsJava8(String str) {
+    /**
+     *  Подсчет гласных и согласных StreamAPI
+     * @param str строка
+     * @return Pair
+     *
+     **/
+
+    public static AbstractMap.SimpleEntry<Long, Long> countVowelsAndConsonantsJava8(String str) {
         str = str.toLowerCase();
         long vowels = str.chars()
                 .filter(c -> allVowels.contains((char) c))
@@ -38,6 +59,6 @@ public class VowelConsonantCounter {
                 .filter(ch -> (ch >= 'a' && ch <= 'z'))
                 .count();
 
-        return Pair.of(vowels, consonants);
+        return new AbstractMap.SimpleEntry<>(vowels, consonants);
     }
 }
